@@ -1,0 +1,19 @@
+{
+    "users": [
+        {
+            "username": "joe",
+            "name": "Viewtiful Joe",
+            "img": "joe.png"
+        },
+        {
+            "username": "silvia",
+            "name": "Go-Go Silvia",
+            "img": "silvia.png"
+        },
+        {
+            "username": "blue",
+            "name": "Captain Blue",
+            "img": null
+        }
+    ]
+}
