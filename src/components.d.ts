@@ -7,7 +7,6 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    copy: typeof import('./components/LogInDialog copy.vue')['default']
     EditEntryForm: typeof import('./components/EditEntryForm.vue')['default']
     EntryList: typeof import('./components/EntryList.vue')['default']
     LogInDialog: typeof import('./components/LogInDialog.vue')['default']
