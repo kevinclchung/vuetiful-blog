@@ -63,7 +63,7 @@ export const useAppStore = defineStore('app', {
     },
     sortedEntries(state) {
       return Array.from(state.entries.values())
-        .sort((a: EntryType, b: EntryType) => a.date < b.date ? -1 : 1)
+        .sort((a: EntryType, b: EntryType) => a.date > b.date ? -1 : 1)
     }
   },
   actions: {
