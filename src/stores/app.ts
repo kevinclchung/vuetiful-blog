@@ -47,6 +47,13 @@ export const useAppStore = defineStore('app', {
      */
     editEntryFormShown: false,
     entryToEdit: blankEntry,
+    search: {
+      shown: false,
+      title: <string|null>null,
+      author: null,
+      text: <string|null>null,
+      dateRange: <string[]>[],
+    },
   }),
   getters: {
     userInitials: () => (user: UserType|null): string => {
@@ -64,7 +71,23 @@ export const useAppStore = defineStore('app', {
     sortedEntries(state) {
       return Array.from(state.entries.values())
         .sort((a: EntryType, b: EntryType) => a.date > b.date ? -1 : 1)
-    }
+        .filter((entry) =>
+          state.search.title === null
+          || entry.title.toLowerCase().includes(state.search.title.toLowerCase().trim())
+        )
+        .filter((entry) => 
+          state.search.author === ''
+          || state.search.author === null
+          || entry.author === state.search.author
+        )
+        .filter((entry) =>
+          state.search.dateRange.length === 0
+          || state.search.dateRange.includes(entry.date)
+        )
+        .filter((entry) =>
+          state.search.text === null
+          || entry.text.toLowerCase().includes(state.search.text.toLowerCase().trim()))
+    },
   },
   actions: {
     openEditEntrySheet(id?: string) {

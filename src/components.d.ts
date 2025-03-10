@@ -13,5 +13,6 @@ declare module 'vue' {
     NoEntriesMessage: typeof import('./components/NoEntriesMessage.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Search: typeof import('./components/Search.vue')['default']
   }
 }

@@ -1,5 +1,6 @@
 <template>
   <v-container class="d-flex justify-center flex-column align-center">
+    <search />
     <v-card
       v-for="(entry, entryIndex) in store.sortedEntries"
       :key="entryIndex"
