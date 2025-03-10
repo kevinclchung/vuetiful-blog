@@ -26,7 +26,7 @@
             {{ getUser(entry.author)?.name }}
           </v-col>
           <v-col :class="smAndUp ? 'text-right' : ''">
-            {{ new Date(entry.date).toLocaleDateString() }}
+            {{ date.format(entry.date, 'fullDateWithWeekday') }}
           </v-col>
         </v-row>
       </v-card-subtitle>
@@ -79,10 +79,11 @@
 </template>
 
 <script lang="ts" setup>
-  import { useDisplay } from 'vuetify'
+  import { useDate, useDisplay } from 'vuetify'
   import { useAppStore } from '@/stores/app'
 
   const store = useAppStore()
+  const date = useDate()
   const { smAndUp } = useDisplay()
   const entryToDeleteId = ref('')
   const showConfirmDeleteAlert = ref(false)
