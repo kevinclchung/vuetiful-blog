@@ -39,6 +39,6 @@
   for (const entryId of store.entryList) {
     const entryStr = localStorage.getItem(<string>entryId)
     const entry = entryStr ? JSON.parse(entryStr) : null
-    store.entries.set('entry', entry ? entry : blankEntry)
+    store.entries.set(<string>entryId, entry ? entry : blankEntry)
   }
 </script>
